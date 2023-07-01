@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10, minimum-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/order.css">
+  <link rel="stylesheet" href="./css/mobile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>NSG | HOME</title>
+</head>
+
+<body>
+  <header>
+    <input type="checkbox" id="active">
+    <a href="Index.html" for="active" class="menu_btn"><i class="fas fa-solid fa-arrow-left"></i></a>
+    <div class="title_page">
+      <h1>ESTORNO</h1>
+    </div>
+  </header>
+
+  <section class="main_container">
+    <div class="content_container">
+      <h1 class="title_order">NÚMERO DO PEDIDO</h1>
+      <input type="number" class="num_order" id="numeroPedido" placeholder="Digite o número do pedido">
+      <a href="./orderReversal.html"><button class="order_request" id="order_request" onclick="exibirPedido()">CONSULTAR</button></a>
+
+    </div>
+
+  </section>
+
+  <script src="index.js"></script>
+  <script src="./js/order.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

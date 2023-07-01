@@ -1,0 +1,23 @@
+
+.data_container {
+  height: 55%;
+  margin-bottom: 45px;
+  color: #333333;
+  align-items: flex-start;
+  font-size: 2rem;
+  width: 60%;
+  text-align: center;
+  
+}
+
+
+.data_container h1 {
+margin: 0 auto;
+}
+
+.data_container p span {
+  margin-left: 10px;
+}
+
+
+
