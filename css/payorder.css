@@ -1,0 +1,60 @@
+/* Main Container */
+
+.main_container {
+ margin-top: -150px;
+}
+
+.payorder_button {
+  display: inline-block;
+  width: 100%;
+  font-size: 30px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  padding: 35px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 2rem;
+  transition: all .5s ease;
+  text-align: center;
+  box-shadow: 0px 16px 31px -7px rgba(0,0,0,0.75);
+  margin-bottom: 30px;
+  background: linear-gradient(129deg, #FFC107 10%, #F7CD51 91%);
+  color: #333333;
+  font-weight: bold;
+}
+payorder_button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  z-index: -2;
+}
+.payorder_button:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #051826;
+  transition: all .5s ease;
+  border-radius: 1rem;
+  z-index: -1;
+}
+.payorder_button:hover {
+  color: #fff;
+
+}
+.payorder_button:hover:before {
+  width: 100%;
+}
+.payorder_menu {
+  width: 40%;
+}
+
+
+

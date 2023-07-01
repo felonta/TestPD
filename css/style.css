@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Share Tech", sans-serif; 
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+ background: #F5F5F5;
+ overflow: hidden;
+ font-size: 16px;
+}
+
+.button {
+  display: inline-block;
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  padding: 35px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 2rem;
+  transition: all .5s ease;
+  text-align: center;
+  box-shadow: 0px 16px 31px -7px rgba(0,0,0,0.75);
+  margin-bottom: 30px;
+}
+
+.button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(129deg, #FFC107 10%, #F7CD51 91%);
+  border-radius: 2rem;
+  z-index: -2;
+}
+.button:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #051826;
+  transition: all .5s ease;
+  border-radius: 1rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #fff;
+}
+.button:hover:before {
+  width: 100%;
+}
+
+
+.title_page {
+  background: linear-gradient(129deg, #F5B907 10%, #F5B907 91%);
+  width: 40%;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top: 35px;
+  text-align: center;
+  border-radius: 20px;
+  word-break: break-all;
+  font-size: 1rem;
+  box-shadow: 0px 16px 31px -7px rgba(0,0,0,0.75);
+  color: #333333;
+}
+
+/* Button Back */
+
+.menu_btn{
+  position: fixed;
+  z-index: 2;
+  left: 20px;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #333333;
+  cursor: pointer;
+  background: linear-gradient(129deg, #F5B907 10%, #F5B907 91%);
+  transition: all .5s ease;
+  margin-top: 10px;
+
+}
+
+.menu_btn:hover{
+  
+  transform: scale(1.1);
+  color: #F5F5F5;
+ 
+}
+input[type="checkbox"]{
+  display: none;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    
+    .phone {
+      background-color: #fff;
+      border-radius: 20px;
+      border: 10px solid #333;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      overflow: hidden;
+    }
+    
+    .phone .screen {
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ddd;
+      height: 500px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .phone .screen h1 {
+      font-size: 24px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .phone .screen p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 20px 0;
+    }
+    
+    .phone .screen h2 {
+      font-size: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .btn-concluir {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  </style>
+  <title>Tela de Venda</title>
+</head>
+<body>
+  <div class="phone">
+    <div class="screen">
+      <h1>Dados da Venda</h1>
+      <p>ID: <span id="id"></span></p>
+      <p>Número da Venda: <span id="num_venda"></span></p>
+      <h2>Forma de Pagamento</h2>
+      <p>Pagamento: <span id="pagamento"></span></p>
+      <h2>Cliente</h2>
+      <p>ID: <span id="cliente_id"></span></p>
+      <p>Nome: <span id="cliente_nome"></span></p>
+
+      <button class="btn-concluir" onclick="enviarVenda()">Concluir Venda</button>
+    </div>
+  </div>
+
+  <script>
+    // Função para obter os dados da venda usando AJAX
+    function getVenda() {
+  const vendaId = '1'; // ID da venda desejada
+
+  // Requisição AJAX para obter os dados da venda
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        const venda = JSON.parse(xhr.responseText);
+        preencherDadosVenda(venda);
+      } else {
+        console.error('Erro ao obter os dados da venda');
+      }
+    }
+  };
+  xhr.open('GET', '/vendas/' + vendaId);
+  xhr.send();
+}
+
+// Função para preencher os dados da venda na página
+function preencherDadosVenda(venda) {
+  document.getElementById('id').textContent = venda.id;
+  document.getElementById('num_venda').textContent = venda.num_venda;
+  document.getElementById('pagamento').textContent = venda.forma_pagamento.pagamento; // Acessando o campo de pagamento diretamente
+  document.getElementById('cliente_id').textContent = venda.cliente[0].id;
+  document.getElementById('cliente_nome').textContent = venda.cliente[0].nome;
+}
+
+    // Função para enviar a venda para o servidor
+    function enviarVenda() {
+      const venda = {
+        "id": "1",
+        "num_venda": "testando",
+        "total": 123,
+        "dt_emissao": "dd/mm/aaaa",
+        "dt_vencimento": "dd/mm/aaaa",
+        "qtd_items": 5,
+        "vale_credito_usado": 100,
+        "desconto": 10,
+        "nsu": "123456",
+        "bandeira": "visa",
+        "data_pagamento": "dd/mm/aaaa",
+        "hora_pagamento": "MM:SS:HH",
+        "local": "rua john nsg",
+        "forma_pagamento": [
+          {
+            "desconto_padrao": 10,
+            "acrescimo_padrao": 0,
+            "pagamento": "debito"
+          }
+        ],
+        "liquidado": "S",
+        "cliente": [
+          {
+            "id": "123",
+            "nome": "jorginho pipoca"
+          }
+        ]
+      };
+
+      // Requisição AJAX para enviar a venda para o servidor
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            window.location.href = "/sucesso.html"; // Redirecionar para a página de sucesso
+          } else {
+            console.error('Erro ao enviar a venda');
+          }
+        }
+      };
+      xhr.open('POST', '/enviar-venda');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(venda));
+    }
+
+    // Chamar a função para obter os dados da venda
+    getVenda();
+  </script>
+</body>
+</html>
